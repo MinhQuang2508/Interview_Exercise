@@ -10,9 +10,8 @@ This repository contains explanations and implementations of the Triplet Loss fu
 
 The Triplet Loss function is defined as:
 
-\[
-L(a, p, n) = \max(0, d(a, p) - d(a, n) + \alpha)
-\]
+\[ L(a, p, n) = \max \left(0, \|a - p\|^2 - \|a - n\|^2 + \alpha \right) \]
+
 
 Where:
 - \(a\) is the anchor point.
@@ -34,9 +33,8 @@ Where:
 
 When there are multiple negative samples, the Triplet Loss function is extended to:
 
-\[
-L(a, p, \{n_i\}_{i=1}^M) = \max_{i=1}^M \left( d(a, p) - d(a, n_i) + \alpha \right)
-\]
+\[ L(a, p, \{n_i\}_{i=1}^k) = \sum_{i=1}^k \max \left(0, \|a - p\|^2 - \|a - n_i\|^2 + \alpha \right) \]
+
 
 Where:
 - \(\{n_i\}_{i=1}^M\) represents the set of negative samples.
